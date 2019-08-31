@@ -18,7 +18,7 @@
 
 <!-- LightWidget WIDGET -->
 <iframe
-  src="//lightwidget.com/widgets/7f800bab095f5cb89b60bc52d51d816d.html"
+  src="//lightwidget.com/widgets/c46b7cb4e45d57c7b6b5194e0ae2e5fa.html"
   scrolling="no"
   title="no"
   allowtransparency="true"

@@ -68,12 +68,7 @@
       </a>
     </li>
     <li>
-      <a
-        rel="prefetch"
-        class={segment === 'blog' ? 'selected' : ''}
-        href="blog">
-        STORE
-      </a>
+      <a class={segment === 'contact' ? 'selected' : ''} href="contact">CONTACT</a>
     </li>
   </ul>
 </nav>
