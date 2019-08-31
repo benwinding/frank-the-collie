@@ -1,46 +1,26 @@
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+  <title>Frank the collie</title>
+  <script src="https://cdn.lightwidget.com/widgets/lightwidget.js">
+
+  </script>
 </svelte:head>
 
-<h1>Great success!</h1>
+<div class="flex flex-row justify-center items-center pb-4">
+  <a target="_blank" href="https://www.instagram.com/frankthecollie/">
+    <img src="https://i.imgur.com/36Sv7fO.png" width="30" alt="frank logo" />
+  </a>
+  <span class="italic pl-2">Frankstagram Feed</span>
+</div>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<!-- LightWidget WIDGET -->
+<iframe
+  src="//lightwidget.com/widgets/7f800bab095f5cb89b60bc52d51d816d.html"
+  scrolling="no"
+  title="no"
+  allowtransparency="true"
+  class="lightwidget-widget"
+  style="width:100%;border:0;overflow:hidden;" />
