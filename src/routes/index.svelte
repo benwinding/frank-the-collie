@@ -1,25 +1,60 @@
-<style>
+<script>
+  import InstaCard from "../components/InstaCard.svelte";
 
-</style>
+  const ACCESS_TOKEN = "19146560522.1677ed0.0802063cadc644c29dec3eee81f26779";
+  const urlProfile = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`;
+  let col1 = [];
+  let col2 = [];
+  let col3 = [];
+
+  async function getData() {
+    const res = await fetch(urlProfile);
+    const json = await res.json();
+    const images = json.data.map(item => getImageDesc(item));
+    for (let i = 0; i < images.length; i += 3) {
+      col1 = [...col1, images[i + 0]];
+      col2 = [...col2, images[i + 1]];
+      col3 = [...col3, images[i + 2]];
+    }
+    console.log({ col1, col2, col3 });
+  }
+
+  function getImageDesc(item) {
+    return {
+      url: item.images.standard_resolution.url,
+      caption: item.caption.text
+    };
+  }
+
+  getData();
+</script>
 
 <svelte:head>
   <title>Frank the collie</title>
-  <script src="https://cdn.lightwidget.com/widgets/lightwidget.js">
-  </script>
 </svelte:head>
 
 <div class="flex flex-row justify-center items-center pb-4">
   <a target="_blank" href="https://www.instagram.com/frankthecollie/">
-    <img src="images/logo.png" width="30" alt="frank logo" />
+    <img src="images/frankstagram.png" width="30" alt="frank logo" />
   </a>
   <span class="italic pl-2">Frankstagram Feed</span>
 </div>
 
-<!-- LightWidget WIDGET -->
-<iframe
-  src="//lightwidget.com/widgets/c46b7cb4e45d57c7b6b5194e0ae2e5fa.html"
-  scrolling="no"
-  title="no"
-  allowtransparency="true"
-  class="lightwidget-widget"
-  style="width:100%;border:0;overflow:hidden;" />
+<!-- Three columns -->
+<div class="flex mb-4">
+  <div class="w-1/3">
+    {#each col1 as { url, caption }, i}
+      <InstaCard {url} {caption} />
+    {/each}
+  </div>
+  <div class="w-1/3">
+    {#each col2 as { url, caption }, i}
+      <InstaCard {url} {caption} />
+    {/each}
+  </div>
+  <div class="w-1/3">
+    {#each col3 as { url, caption }, i}
+      <InstaCard {url} {caption} />
+    {/each}
+  </div>
+</div>
