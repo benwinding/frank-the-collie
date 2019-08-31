@@ -10,7 +10,7 @@
 
 <div class="flex flex-row justify-center items-center pb-4">
   <a target="_blank" href="https://www.instagram.com/frankthecollie/">
-    <img src="https://i.imgur.com/36Sv7fO.png" width="30" alt="frank logo" />
+    <img src="images/logo.png" width="30" alt="frank logo" />
   </a>
   <span class="italic pl-2">Frankstagram Feed</span>
 </div>

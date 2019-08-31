@@ -30,7 +30,7 @@
         a pretty good boy :)
       </p>
       <p>My room-mates are Ally and Benny</p>
-      <img src="/images/family.jpg" alt="my family" />
+      <img src="images/family.jpg" alt="my family" />
 	  </div>
   </div>
 </div>
