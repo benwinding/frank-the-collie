@@ -10,19 +10,20 @@
   async function getData() {
     const res = await fetch(urlProfile);
     const json = await res.json();
-    const images = json.data.map(item => getImageDesc(item));
+    const images = json.data.reverse().map(item => getImageDesc(item));
     for (let i = 0; i < images.length; i += 3) {
-      col1 = [...col1, images[i + 0]];
-      col2 = [...col2, images[i + 1]];
-      col3 = [...col3, images[i + 2]];
+      col1 = [...col1, images[i + 0]].filter(v => !!v);
+      col2 = [...col2, images[i + 1]].filter(v => !!v);
+      col3 = [...col3, images[i + 2]].filter(v => !!v);
     }
-    console.log({ col1, col2, col3 });
+    console.log({ json, col1, col2, col3 });
   }
 
   function getImageDesc(item) {
     return {
       url: item.images.standard_resolution.url,
-      caption: item.caption.text
+      caption: item.caption.text,
+      urlPost: item.link,
     };
   }
 
@@ -43,18 +44,18 @@
 <!-- Three columns -->
 <div class="flex mb-4">
   <div class="w-1/3">
-    {#each col1 as { url, caption }, i}
-      <InstaCard {url} {caption} />
+    {#each col1 as { url, caption, urlPost }, i}
+      <InstaCard {url} {caption} {urlPost} />
     {/each}
   </div>
   <div class="w-1/3">
-    {#each col2 as { url, caption }, i}
-      <InstaCard {url} {caption} />
+    {#each col2 as { url, caption, urlPost }, i}
+      <InstaCard {url} {caption} {urlPost} />
     {/each}
   </div>
   <div class="w-1/3">
-    {#each col3 as { url, caption }, i}
-      <InstaCard {url} {caption} />
+    {#each col3 as { url, caption, urlPost }, i}
+      <InstaCard {url} {caption} {urlPost} />
     {/each}
   </div>
 </div>
