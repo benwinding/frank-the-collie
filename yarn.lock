@@ -53,9 +53,9 @@
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
 "@types/node@*":
-  version "12.7.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.2.tgz#c4e63af5e8823ce9cc3f0b34f7b998c2171f0c44"
-  integrity sha512-dyYO+f6ihZEtNPDcWNR1fkoTDf3zAK3lAABDze3mz6POyIercH0lEUawUFXlG8xaQZmm1yEBON/4TsYv/laDYg==
+  version "12.7.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.3.tgz#27b3f40addaf2f580459fdb405222685542f907a"
+  integrity sha512-3SiLAIBkDWDg6vFo0+5YJyHPWU9uwu40Qe+v+0MH8wRKYBimHvvAOyk3EzMrD/TrIlLYfXrqDqrg913PynrMJQ==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -3008,7 +3008,7 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sapper@^0.27.0:
+sapper@^0.27.8:
   version "0.27.8"
   resolved "https://registry.yarnpkg.com/sapper/-/sapper-0.27.8.tgz#dd41cd359373b816fbb519cffd1b941e4f4cd459"
   integrity sha512-78K+56yu9nGOEU0B0XjBvNchRuPEv4aHbAKK4D874S4aoapMAkHCT0bHtPK12S3P7JPxvvT8GzHaq/8NetMmbg==
@@ -3039,9 +3039,9 @@ schema-utils@^1.0.0:
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
 
 serialize-javascript@^1.7.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.8.0.tgz#9515fc687232e2321aea1ca7a529476eb34bb480"
-  integrity sha512-3tHgtF4OzDmeKYj6V9nSyceRS0UJ3C7VqyD2Yj28vC/z2j6jG5FmFGahOKMD9CrglxTm3tETr87jEypaYV8DUg==
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.9.0.tgz#5b77019d7c3b85fe91b33ae424c53dcbfb6618bd"
+  integrity sha512-UkGlcYMtw4d9w7YfCtJFgdRTps8N4L0A48R+SmcGL57ki1+yHwJXnalk5bjgrw+ljv6SfzjzPjhohod2qllg/Q==
 
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
