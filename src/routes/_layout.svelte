@@ -17,8 +17,14 @@
 
 <div class="flex justify-center">
   <div class="flex flex-col">
-    <img src="https://i.imgur.com/cWPBCGg.png" alt="Frank posed" width="150" />
-    <h2 class="font-mono text-center font-bold text-3xl">Frank</h2>
+    <a href="/">
+      <img
+        class="p-2"
+        src="https://i.imgur.com/cWPBCGg.png"
+        alt="Frank posed"
+        width="150" />
+      <h2 class="font-mono text-center font-bold text-3xl">Frank</h2>
+    </a>
   </div>
 </div>
 

@@ -5,7 +5,6 @@
 <svelte:head>
   <title>Frank the collie</title>
   <script src="https://cdn.lightwidget.com/widgets/lightwidget.js">
-
   </script>
 </svelte:head>
 
