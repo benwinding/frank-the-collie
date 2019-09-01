@@ -8,7 +8,7 @@
 }
 </style>
 
-<nav>
+<nav class="mb-2">
   <ul class="flex justify-center p-3">
     <li>
       <a class="p-3" class:active={segment === undefined} href=".">HOME</a>
