@@ -10,7 +10,7 @@
   async function getData() {
     const res = await fetch(urlProfile);
     const json = await res.json();
-    const images = json.data.reverse().map(item => getImageDesc(item));
+    const images = json.data.map(item => getImageDesc(item));
     for (let i = 0; i < images.length; i += 3) {
       col1 = [...col1, images[i + 0]].filter(v => !!v);
       col2 = [...col2, images[i + 1]].filter(v => !!v);
