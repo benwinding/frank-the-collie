@@ -1,5 +1,10 @@
 <script>
-  const thanksUrl = [window.location.href, 'thanks'].join('/');
+  import { onMount } from "svelte";
+  let isSending = false;
+  let thanksUrl = "";
+  onMount(() => {
+    thanksUrl = [window.location.href, "thanks"].join("/");
+  });
 </script>
 
 <svelte:head>
@@ -11,8 +16,12 @@
     <div class="text-white bg-yellow-900 p-8">
       <h1 class="text-3xl text-center">Contact</h1>
     </div>
-    <form class="p-6" action="https://getsimpleform.com/messages?form_api_token=fa56f1ca5d0edb82618b16f3189d0799" method="post">
-      <input type='hidden' name='redirect_to' value='{thanksUrl}' />
+    <form
+      class="p-6"
+      action="https://getsimpleform.com/messages?form_api_token=fa56f1ca5d0edb82618b16f3189d0799"
+      method="post"
+      on:submit={() => (isSending = true)}>
+      <input type="hidden" name="redirect_to" value={thanksUrl} />
       <div class="w-full mb-6 px-2">
         <p class="pb-4">Throw me a bone, or book me for a photo shoot :)</p>
         <label
@@ -45,13 +54,50 @@
           placeholder="Hey Frank!" />
       </div>
       <div class="flex justify-center">
-        <button
-          class="shadow bg-teal-600 hover:bg-teal-500 focus:shadow-outline
-          focus:outline-none text-white py-2 px-4 rounded"
-          type="submit">
-          <i class="py-2 pr-2 text-white fas fa-sign-in-alt fa-lg" />
-          Send Message
-        </button>
+        {#if isSending}
+          <button
+            class="shadow bg-gray-500 focus:shadow-outline pointer-events-none
+            focus:outline-none text-white py-2 px-4 rounded flex items-center">
+            Sending...
+            <svg
+              id="i-reload"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              class="ml-3 spin-this"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2">
+              <path
+                d="M29 16 C29 22 24 29 16 29 8 29 3 22 3 16 3 10 8 3 16 3 21 3
+                25 6 27 9 M20 10 L27 9 28 2" />
+            </svg>
+          </button>
+        {:else}
+          <button
+            class="shadow bg-teal-600 hover:bg-teal-500 focus:shadow-outline
+            focus:outline-none text-white py-2 px-4 rounded flex items-center"
+            type="submit">
+            Send Message
+            <svg
+              id="i-checkmark"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              class="ml-3"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2">
+              <path d="M22 6 L30 16 22 26 M30 16 L2 16" />
+            </svg>
+          </button>
+        {/if}
       </div>
     </form>
   </div>

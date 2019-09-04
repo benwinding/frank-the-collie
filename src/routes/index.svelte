@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import InstaCard from "../components/InstaCard.svelte";
 
   let loading = true;
@@ -29,7 +30,9 @@
     };
   }
 
-  getData();
+  onMount(async () => {
+    getData();
+	});
 </script>
 
 <svelte:head>
@@ -46,7 +49,7 @@
 {#if loading}
   <div class="flex flex-col items-center py-20">
     <div class="flex flex-col items-center">
-      <img src="https://media3.giphy.com/media/xWCGWtWOpx7gyGWYgg/source.gif" width="100" alt="loading" />
+      <img src="images/loading.gif" width="100" alt="loading" />
       <h2 class="p-4 text-xl italic">Loading...</h2>
     </div>
   </div>
