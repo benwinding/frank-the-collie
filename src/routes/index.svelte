@@ -2,15 +2,15 @@
   import { onMount } from "svelte";
   import InstaCard from "../components/InstaCard.svelte";
 
-  let loading = true;
-  const ACCESS_TOKEN = "19146560522.1677ed0.0802063cadc644c29dec3eee81f26779";
-  const urlProfile = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`;
+  let ACCESS_TOKEN = "19146560522.1677ed0.0802063cadc644c29dec3eee81f26779";
+  let urlProfile = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`;
   let col1 = [];
   let col2 = [];
   let col3 = [];
 
   async function getData() {
-    const res = await fetch(urlProfile);
+    require("whatwg-fetch");
+    const res = await window.fetch(urlProfile);
     const json = await res.json();
     const images = json.data.map(item => getImageDesc(item));
     for (let i = 0; i < images.length; i += 3) {
@@ -19,7 +19,6 @@
       col3 = [...col3, images[i + 2]].filter(v => !!v);
     }
     console.log({ json, col1, col2, col3 });
-    loading = false;
   }
 
   function getImageDesc(item) {
@@ -46,7 +45,7 @@
   <span class="italic pl-2">Frankstagram Feed</span>
 </div>
 
-{#if loading}
+{#if col1.length < 1 }
   <div class="flex flex-col items-center py-20">
     <div class="flex flex-col items-center">
       <img src="images/loading.gif" width="100" alt="loading" />
