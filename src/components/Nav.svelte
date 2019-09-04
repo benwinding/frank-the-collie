@@ -12,14 +12,14 @@
   <ul class="flex justify-center p-3">
     <li>
       <a
-        class="p-3 flex items-center"
+        class="p-1 md:p-3 flex items-center"
         class:active={segment === undefined}
         href=".">
         <svg
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-3"
+          class="mr-1 md:mr-3"
           width="15"
           height="15"
           fill="none"
@@ -34,14 +34,14 @@
     </li>
     <li>
       <a
-        class="p-3 flex items-center"
+        class="p-1 md:p-3 flex items-center"
         class:active={segment === 'about'}
         href="about">
         <svg
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-3"
+          class="mr-1 md:mr-3"
           width="15"
           height="15"
           fill="none"
@@ -57,14 +57,14 @@
     </li>
     <li>
       <a
-        class="p-3 flex items-center"
+        class="p-1 md:p-3 flex items-center"
         class:active={segment === 'contact'}
         href="contact">
         <svg
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-3"
+          class="mr-1 md:mr-3"
           width="15"
           height="15"
           fill="none"
@@ -81,14 +81,14 @@
     </li>
     <li>
       <a
-        class="p-3 flex items-center"
+        class="p-1 md:p-3 flex items-center"
         class:active={segment === 'shop'}
         href="shop">
         <svg
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-3"
+          class="mr-1 md:mr-3"
           width="15"
           height="15"
           fill="none"

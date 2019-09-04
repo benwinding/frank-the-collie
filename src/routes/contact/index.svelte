@@ -2,8 +2,13 @@
   import { onMount } from "svelte";
   let isSending = false;
   let thanksUrl = "";
+  let defaultEmail = "";
+  let defaultMessage = "";
   onMount(() => {
     thanksUrl = [window.location.href, "thanks"].join("/");
+    const query = new URLSearchParams(window.location.search);
+    defaultEmail = query.get("email");
+    defaultMessage = query.get("message");
   });
 </script>
 
@@ -36,7 +41,8 @@
           type="email"
           class="appearance-none block w-full bg-gray-400 text-gray-700 border
           rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-          placeholder="Your Email" />
+          placeholder="Your Email"
+          value={defaultEmail} />
       </div>
       <div class="w-full mb-6 px-2">
         <label
@@ -51,7 +57,8 @@
           type="text"
           class="appearance-none block w-full bg-gray-400 text-gray-700 border
           rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-          placeholder="Hey Frank!" />
+          placeholder="Hey Frank!"
+          value={defaultMessage} />
       </div>
       <div class="flex justify-center">
         {#if isSending}

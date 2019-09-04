@@ -25,7 +25,7 @@
   <a class="hover-grey" href="/">
     <img
       class="p-2"
-      src="https://i.imgur.com/cWPBCGg.png"
+      src="images/logo.png"
       alt="Frank posed"
       width="150" />
     <h2 class="font-mono text-center font-bold text-3xl">Frank</h2>
