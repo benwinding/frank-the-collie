@@ -1,6 +1,7 @@
 <script>
   import InstaCard from "../components/InstaCard.svelte";
 
+  let loading = true;
   const ACCESS_TOKEN = "19146560522.1677ed0.0802063cadc644c29dec3eee81f26779";
   const urlProfile = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`;
   let col1 = [];
@@ -17,13 +18,14 @@
       col3 = [...col3, images[i + 2]].filter(v => !!v);
     }
     console.log({ json, col1, col2, col3 });
+    loading = false;
   }
 
   function getImageDesc(item) {
     return {
       url: item.images.standard_resolution.url,
       caption: item.caption.text,
-      urlPost: item.link,
+      urlPost: item.link
     };
   }
 
@@ -41,21 +43,29 @@
   <span class="italic pl-2">Frankstagram Feed</span>
 </div>
 
-<!-- Three columns -->
-<div class="flex mb-4">
-  <div class="w-1/3">
-    {#each col1 as { url, caption, urlPost }, i}
-      <InstaCard {url} {caption} {urlPost} />
-    {/each}
+{#if loading}
+  <div class="flex flex-col items-center py-20">
+    <div class="flex flex-col items-center">
+      <img src="https://media3.giphy.com/media/xWCGWtWOpx7gyGWYgg/source.gif" width="100" alt="loading" />
+      <h2 class="p-4 text-xl italic">Loading...</h2>
+    </div>
   </div>
-  <div class="w-1/3">
-    {#each col2 as { url, caption, urlPost }, i}
-      <InstaCard {url} {caption} {urlPost} />
-    {/each}
+{:else}
+  <div class="flex mb-4">
+    <div class="w-1/3">
+      {#each col1 as { url, caption, urlPost }, i}
+        <InstaCard {url} {caption} {urlPost} />
+      {/each}
+    </div>
+    <div class="w-1/3">
+      {#each col2 as { url, caption, urlPost }, i}
+        <InstaCard {url} {caption} {urlPost} />
+      {/each}
+    </div>
+    <div class="w-1/3">
+      {#each col3 as { url, caption, urlPost }, i}
+        <InstaCard {url} {caption} {urlPost} />
+      {/each}
+    </div>
   </div>
-  <div class="w-1/3">
-    {#each col3 as { url, caption, urlPost }, i}
-      <InstaCard {url} {caption} {urlPost} />
-    {/each}
-  </div>
-</div>
+{/if}

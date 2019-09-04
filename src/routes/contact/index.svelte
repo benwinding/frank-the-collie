@@ -1,10 +1,5 @@
 <script>
-  async function handleSubmit(event) {
-    console.log(event);
-    console.log(event.target);
-    const email = event.target.querySelector("#email").value;
-    const message = event.target.querySelector("#message").value;
-  }
+  const thanksUrl = [window.location.href, 'thanks'].join('/');
 </script>
 
 <svelte:head>
@@ -16,7 +11,8 @@
     <div class="text-white bg-yellow-900 p-8">
       <h1 class="text-3xl text-center">Contact</h1>
     </div>
-    <form on:submit|preventDefault={handleSubmit} class="p-6">
+    <form class="p-6" action="https://getsimpleform.com/messages?form_api_token=fa56f1ca5d0edb82618b16f3189d0799" method="post">
+      <input type='hidden' name='redirect_to' value='{thanksUrl}' />
       <div class="w-full mb-6 px-2">
         <p class="pb-4">Throw me a bone, or book me for a photo shoot :)</p>
         <label
@@ -27,7 +23,7 @@
         </label>
         <input
           required
-          id="email"
+          name="email"
           type="email"
           class="appearance-none block w-full bg-gray-400 text-gray-700 border
           rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -42,7 +38,7 @@
         </label>
         <textarea
           required
-          id="message"
+          name="message"
           type="text"
           class="appearance-none block w-full bg-gray-400 text-gray-700 border
           rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
