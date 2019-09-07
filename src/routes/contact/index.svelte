@@ -23,7 +23,7 @@
     </div>
     <form
       class="p-6"
-      action="https://getsimpleform.com/messages?form_api_token=fa56f1ca5d0edb82618b16f3189d0799"
+      action="https://getsimpleform.com/messages?form_api_token=5570a0210f4250dfacb6a6de2ceb0b6a"
       method="post"
       on:submit={() => (isSending = true)}>
       <input type="hidden" name="redirect_to" value={thanksUrl} />
