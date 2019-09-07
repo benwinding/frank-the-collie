@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import InstaCard from "../components/InstaCard.svelte";
+  import axios from 'axios';
 
   let ACCESS_TOKEN = "19146560522.1677ed0.0802063cadc644c29dec3eee81f26779";
   let urlProfile = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`;
@@ -9,9 +10,10 @@
   let col3 = [];
 
   async function getData() {
-    require("whatwg-fetch");
-    const res = await window.fetch(urlProfile);
-    const json = await res.json();
+    console.log('accessing instagram api:');
+    const res = await axios.get(urlProfile);
+    const json = res.data;
+    console.log('accessing instagram api:', {res});
     const images = json.data.map(item => getImageDesc(item));
     for (let i = 0; i < images.length; i += 3) {
       col1 = [...col1, images[i + 0]].filter(v => !!v);
