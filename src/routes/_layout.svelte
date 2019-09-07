@@ -22,7 +22,7 @@
 </style>
 
 <div class="flex justify-center">
-  <a class="hover-grey" href="/">
+  <a class="hover-grey" href=".">
     <img
       class="p-2"
       src="images/logo.png"
