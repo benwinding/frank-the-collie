@@ -19,9 +19,9 @@
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-1 md:mr-3"
-          width="15"
-          height="15"
+          class="mr-1 md:mr-3 ml-2"
+          width="18"
+          height="18"
           fill="none"
           stroke="currentcolor"
           stroke-linecap="round"
@@ -29,7 +29,7 @@
           stroke-width="2">
           <path d="M12 20 L12 30 4 30 4 12 16 2 28 12 28 30 20 30 20 20 Z" />
         </svg>
-        HOME
+        FEED
       </a>
     </li>
     <li>
@@ -41,9 +41,9 @@
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-1 md:mr-3"
-          width="15"
-          height="15"
+          class="mr-1 md:mr-3 ml-2"
+          width="18"
+          height="18"
           fill="none"
           stroke="currentcolor"
           stroke-linecap="round"
@@ -64,9 +64,9 @@
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-1 md:mr-3"
-          width="15"
-          height="15"
+          class="mr-1 md:mr-3 ml-2"
+          width="18"
+          height="18"
           fill="none"
           stroke="currentcolor"
           stroke-linecap="round"
@@ -88,9 +88,9 @@
           id="i-home"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          class="mr-1 md:mr-3"
-          width="15"
-          height="15"
+          class="mr-1 md:mr-3 ml-2"
+          width="18"
+          height="18"
           fill="none"
           stroke="currentcolor"
           stroke-linecap="round"

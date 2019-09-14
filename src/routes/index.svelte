@@ -41,10 +41,10 @@
 </svelte:head>
 
 <div class="flex flex-row justify-center items-center pb-4">
-  <a target="_blank" href="https://www.instagram.com/frankthecollie/">
+  <a class="flex flex-row items-center" target="_blank" href="https://www.instagram.com/frankthecollie/">
     <img src="images/frankstagram.png" width="30" alt="frank logo" />
+    <span class="italic pl-2">Instagram Feed</span>
   </a>
-  <span class="italic pl-2">Frankstagram Feed</span>
 </div>
 
 {#if col1.length < 1 }
