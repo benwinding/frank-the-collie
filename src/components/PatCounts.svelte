@@ -38,18 +38,15 @@
   });
 </script>
 
-<div class="pl-32 flex flex-row items-start cursor-pointer" on:click={incrementPatsCount}>
+<div
+  class="flex flex-row items-start cursor-pointer"
+  on:click={incrementPatsCount}>
   <div class="flex flex-col items-center">
     <div>
       <img class="p-2" src={frankLogoUrl} alt="Frank posed" width="150" />
     </div>
+    <div class="text-gray-500 text-3xl">🡑</div>
     <h2 class="font-mono text-center font-bold text-3xl">Frank</h2>
-  </div>
-  <div class="pt-16 -ml-5 flex flex-row items-start">
-    <div class="text-gray-500 text-3xl pr-1">🡗</div>
-    <div>
-      <div class="text-gray-600 uppercase text-sm">Click to pat Frank</div>
-      <div class="text-gray-500 text-xs">Pats given: {count}</div>
-    </div>
+    <div class="text-gray-500 text-xs">✋ Pats given: {count}</div>
   </div>
 </div>
