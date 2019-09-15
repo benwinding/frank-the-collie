@@ -1,5 +1,6 @@
 <script>
   import Nav from "../components/Nav.svelte";
+  import PatCounts from "../components/PatCounts.svelte";
 
   export let segment;
 </script>
@@ -22,10 +23,7 @@
 </style>
 
 <div class="flex justify-center">
-  <a class="hover-grey" href=".">
-    <img class="p-2" src="images/logo.png" alt="Frank posed" width="150" />
-    <h2 class="font-mono text-center font-bold text-3xl">Frank</h2>
-  </a>
+  <PatCounts />
 </div>
 
 <Nav {segment} />

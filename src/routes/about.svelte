@@ -61,8 +61,8 @@
 
 <div class="flex flex-col items-center">
   <div class="w-full max-w-md bg-gray-300 shadow-lg rounded overflow-hidden">
-    <div class="text-white bg-yellow-900 p-8">
-      <h1 class="text-3xl text-center">About Me</h1>
+    <div class="text-white bg-frankbrown p-5">
+      <h1 class="text-3xl text-center uppercase">About Me</h1>
     </div>
     <div class="px-8 py-2">
       <p class="py-1">Hey There,</p>

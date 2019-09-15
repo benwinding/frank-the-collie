@@ -18,8 +18,8 @@
 
 <div class="flex flex-col items-center">
   <div class="w-full max-w-md bg-gray-300 shadow-lg rounded overflow-hidden">
-    <div class="text-white bg-yellow-900 p-8">
-      <h1 class="text-3xl text-center">Contact</h1>
+    <div class="text-white bg-frankbrown p-8">
+      <h1 class="text-3xl text-center uppercase">Contact</h1>
     </div>
     <form
       class="p-6"

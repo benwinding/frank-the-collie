@@ -13,3 +13,7 @@
     transform: rotate(360deg);
   }
 }
+
+.bg-frankbrown {
+  background-color: #bd864f;
+}
