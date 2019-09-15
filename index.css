@@ -514,10 +514,6 @@ img {
   background-color: #a0aec0;
 }
 
-.bg-yellow-900 {
-  background-color: #744210;
-}
-
 .bg-teal-600 {
   background-color: #319795;
 }
@@ -557,6 +553,10 @@ img {
 
 .border-b {
   border-bottom-width: 1px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .block {
@@ -819,6 +819,10 @@ img {
 
 .text-white {
   color: #fff;
+}
+
+.text-gray-500 {
+  color: #a0aec0;
 }
 
 .text-gray-700 {
