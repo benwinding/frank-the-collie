@@ -45,8 +45,25 @@
     <div>
       <img class="p-2" src={frankLogoUrl} alt="Frank posed" width="150" />
     </div>
-    <div class="text-gray-500 text-3xl">🡑</div>
+    <div class="text-gray-500 stretch-this">
+      <svg
+        id="i-arrow-top"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        width="20"
+        height="20"
+        fill="none"
+        stroke="currentcolor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="5">
+        <path d="M6 10 L16 2 26 10 M16 2 L16 30" />
+      </svg>
+    </div>
     <h2 class="font-mono text-center font-bold text-3xl">Frank</h2>
-    <div class="text-gray-500 text-xs">✋ Pats given: {count}</div>
+    <div class="text-gray-500 text-xs flex flex-row items-center">
+      <span class="wiggle-this text-lg">✋</span> 
+      <span>Pats given: {count}</span>
+    </div>
   </div>
 </div>
