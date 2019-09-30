@@ -49,9 +49,9 @@
   const stats = [
     { label: "Weight", value: "18.3 kg" },
     { label: "Highest Jump", value: "1.3 m (kitchen counter)" },
-    { label: "Birthday", value: getBirthdayString() },
     { label: "Age", value: getAgeString() },
-    { label: "Next Birthday", value: getNextBirthdayString() }
+    { label: "Birthday", value: getBirthdayString() },
+    { label: "Next Birthday", value: getNextBirthdayString() },
   ];
 </script>
 
@@ -66,14 +66,14 @@
     </div>
     <div class="px-8 py-2">
       <p class="py-1">Hey There,</p>
-      <p class="py-1">I'm a freelancing border-collie currently working in Adelaide. My Talent's include:</p>
+      <p class="py-1">My name is Frank, I'm an influencer/border-collie currently working in Adelaide. My Talent's include:</p>
       <ul class="list-disc list-inside">
        <li>Running</li>
-       <li>Fetching</li>
+       <li>Smiling</li>
        <li>Getting pats</li>
       </ul>
       <p class="py-1"><a href="contact" class="text-blue-500 font-bold">Contact me</a> about any offers or problems you think I can help with.</p>
-      <p class="py-1">I live in a share house at the moment (with Benny and Ally), below is a photo of us.</p>
+      <p class="py-1">At the moment I live in a pretty chill share house (with Benny and Ally), below is a photo of us.</p>
       <img src="images/family.jpg" alt="my family" />
 
       <h1 class="my-3 text-xl">Aditional Stats</h1>

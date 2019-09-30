@@ -44,7 +44,7 @@
 
 </style>
 
-<div class="flex flex-wrap justify-center">
+<div class="flex flex-wrap justify-center relative">
   {#each data as { title, imgUrl, description , price}, i}
     <div class="w-1/2 md:w-1/4 mb-2">
       <div class="m-1 h-full">
