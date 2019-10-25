@@ -1,1 +1,113 @@
-!function(e){var t={};function n(a){if(t[a])return t[a].exports;var o=t[a]={i:a,l:!1,exports:{}};return e[a].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,a){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:a})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var a=Object.create(null);if(n.r(a),Object.defineProperty(a,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(a,o,function(t){return e[t]}.bind(null,o));return a},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";n.r(t);const a=["client/70e6099b9f0403aafb61/about.0.js","client/70e6099b9f0403aafb61/contact.1.js","client/70e6099b9f0403aafb61/contact_thanks.2.js","client/70e6099b9f0403aafb61/index.3.js","client/70e6099b9f0403aafb61/main.js","client/70e6099b9f0403aafb61/shop.5.js","client/70e6099b9f0403aafb61/vendors~about.6.js"].concat(["service-worker-index.html","favicon.png","global.css","images/family.jpg","images/frankstagram.png","images/loading.gif","images/logo-winked.png","images/logo.png","images/social1.jpeg","images/thanks.gif","index.css","logo-192.png","logo-512.png","manifest.json","shop/esky1.png","shop/mug1.png","shop/shirt1.jpeg","shop/shirt2.jpeg","shop/shirt3.jpeg","shop/shoe1.png","shop/toy1.png","tailwind.css"]),o=new Set(a);self.addEventListener("install",e=>{e.waitUntil(caches.open("cache1569888280954").then(e=>e.addAll(a)).then(()=>{self.skipWaiting()}))}),self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(async e=>{for(const t of e)"cache1569888280954"!==t&&await caches.delete(t);self.clients.claim()}))}),self.addEventListener("fetch",e=>{if("GET"!==e.request.method||e.request.headers.has("range"))return;const t=new URL(e.request.url);t.protocol.startsWith("http")&&(t.hostname===self.location.hostname&&t.port!==self.location.port||(t.host===self.location.host&&o.has(t.pathname)?e.respondWith(caches.match(e.request)):"only-if-cached"!==e.request.cache&&e.respondWith(caches.open("offline1569888280954").then(async t=>{try{const n=await fetch(e.request);return t.put(e.request,n.clone()),n}catch(n){const a=await t.match(e.request);if(a)return a;throw n}}))))})}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/service-worker.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/node_modules/@sapper/service-worker.js":
+/*!****************************************************!*\
+  !*** ./src/node_modules/@sapper/service-worker.js ***!
+  \****************************************************/
+/*! exports provided: timestamp, files, assets, shell, routes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"timestamp\", function() { return timestamp; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"files\", function() { return files; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"assets\", function() { return files; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"shell\", function() { return shell; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"routes\", function() { return routes; });\n// This file is generated by Sapper — do not edit it!\nconst timestamp = 1571982374847;\n\nconst files = [\n\t\"service-worker-index.html\",\n\t\"favicon.png\",\n\t\"global.css\",\n\t\"images/family.jpg\",\n\t\"images/frankstagram.png\",\n\t\"images/loading.gif\",\n\t\"images/logo-winked.png\",\n\t\"images/logo.png\",\n\t\"images/social1.jpeg\",\n\t\"images/thanks.gif\",\n\t\"index.css\",\n\t\"logo-192.png\",\n\t\"logo-512.png\",\n\t\"manifest.json\",\n\t\"shop/esky1.png\",\n\t\"shop/mug1.png\",\n\t\"shop/shirt1.jpeg\",\n\t\"shop/shirt2.jpeg\",\n\t\"shop/shirt3.jpeg\",\n\t\"shop/shoe1.png\",\n\t\"shop/toy1.png\",\n\t\"tailwind.css\"\n];\n // legacy\n\nconst shell = [\n\t\"client/d64f8cc70582ce979b3c/about.about.js\",\n\t\"client/d64f8cc70582ce979b3c/contact.contact.js\",\n\t\"client/d64f8cc70582ce979b3c/contact_thanks.contact_thanks.js\",\n\t\"client/d64f8cc70582ce979b3c/index.index.js\",\n\t\"client/d64f8cc70582ce979b3c/main.js\",\n\t\"client/d64f8cc70582ce979b3c/shop.shop.js\",\n\t\"client/d64f8cc70582ce979b3c/vendors~about.vendors~about.js\"\n];\n\nconst routes = [\n\t{ pattern: /^\\/$/ },\n\t{ pattern: /^\\/contact\\/?$/ },\n\t{ pattern: /^\\/contact\\/thanks\\/?$/ },\n\t{ pattern: /^\\/about\\/?$/ },\n\t{ pattern: /^\\/shop\\/?$/ }\n];\n\n//# sourceURL=webpack:///./src/node_modules/@sapper/service-worker.js?");
+
+/***/ }),
+
+/***/ "./src/service-worker.js":
+/*!*******************************!*\
+  !*** ./src/service-worker.js ***!
+  \*******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sapper_service_worker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @sapper/service-worker */ \"./src/node_modules/@sapper/service-worker.js\");\n\r\n\r\nconst ASSETS = `cache${_sapper_service_worker__WEBPACK_IMPORTED_MODULE_0__[\"timestamp\"]}`;\r\n\r\n// `shell` is an array of all the files generated by the bundler,\r\n// `files` is an array of everything in the `static` directory\r\nconst to_cache = _sapper_service_worker__WEBPACK_IMPORTED_MODULE_0__[\"shell\"].concat(_sapper_service_worker__WEBPACK_IMPORTED_MODULE_0__[\"files\"]);\r\nconst cached = new Set(to_cache);\r\n\r\nself.addEventListener('install', event => {\r\n\tevent.waitUntil(\r\n\t\tcaches\r\n\t\t\t.open(ASSETS)\r\n\t\t\t.then(cache => cache.addAll(to_cache))\r\n\t\t\t.then(() => {\r\n\t\t\t\tself.skipWaiting();\r\n\t\t\t})\r\n\t);\r\n});\r\n\r\nself.addEventListener('activate', event => {\r\n\tevent.waitUntil(\r\n\t\tcaches.keys().then(async keys => {\r\n\t\t\t// delete old caches\r\n\t\t\tfor (const key of keys) {\r\n\t\t\t\tif (key !== ASSETS) await caches.delete(key);\r\n\t\t\t}\r\n\r\n\t\t\tself.clients.claim();\r\n\t\t})\r\n\t);\r\n});\r\n\r\nself.addEventListener('fetch', event => {\r\n\tif (event.request.method !== 'GET' || event.request.headers.has('range')) return;\r\n\r\n\tconst url = new URL(event.request.url);\r\n\r\n\t// don't try to handle e.g. data: URIs\r\n\tif (!url.protocol.startsWith('http')) return;\r\n\r\n\t// ignore dev server requests\r\n\tif (url.hostname === self.location.hostname && url.port !== self.location.port) return;\r\n\r\n\t// always serve static files and bundler-generated assets from cache\r\n\tif (url.host === self.location.host && cached.has(url.pathname)) {\r\n\t\tevent.respondWith(caches.match(event.request));\r\n\t\treturn;\r\n\t}\r\n\r\n\t// for pages, you might want to serve a shell `service-worker-index.html` file,\r\n\t// which Sapper has generated for you. It's not right for every\r\n\t// app, but if it's right for yours then uncomment this section\r\n\t/*\r\n\tif (url.origin === self.origin && routes.find(route => route.pattern.test(url.pathname))) {\r\n\t\tevent.respondWith(caches.match('/service-worker-index.html'));\r\n\t\treturn;\r\n\t}\r\n\t*/\r\n\r\n\tif (event.request.cache === 'only-if-cached') return;\r\n\r\n\t// for everything else, try the network first, falling back to\r\n\t// cache if the user is offline. (If the pages never change, you\r\n\t// might prefer a cache-first approach to a network-first one.)\r\n\tevent.respondWith(\r\n\t\tcaches\r\n\t\t\t.open(`offline${_sapper_service_worker__WEBPACK_IMPORTED_MODULE_0__[\"timestamp\"]}`)\r\n\t\t\t.then(async cache => {\r\n\t\t\t\ttry {\r\n\t\t\t\t\tconst response = await fetch(event.request);\r\n\t\t\t\t\tcache.put(event.request, response.clone());\r\n\t\t\t\t\treturn response;\r\n\t\t\t\t} catch(err) {\r\n\t\t\t\t\tconst response = await cache.match(event.request);\r\n\t\t\t\t\tif (response) return response;\r\n\r\n\t\t\t\t\tthrow err;\r\n\t\t\t\t}\r\n\t\t\t})\r\n\t);\r\n});\r\n\n\n//# sourceURL=webpack:///./src/service-worker.js?");
+
+/***/ })
+
+/******/ });
