@@ -3,8 +3,8 @@
   import InstaCard from "../components/InstaCard.svelte";
   import axios from 'axios';
 
-  let ACCESS_TOKEN = "19146560522.1677ed0.0802063cadc644c29dec3eee81f26779";
-  let urlProfile = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`;
+  let ACCESS_TOKEN = "IGQVJXSm5ldG5KYklDUHU1VVNDdkZAnV0FDTU9MdzlzSjFTcXpKekExLWgzYmVsTDhGY1JuTzZAOd2ZAMUkFHTDNQd284VDAxamdtdGR6blFSR0YwaFhMSWU2eGNWUkRZAX3M4a1FtQzJMTU1pSDJZAR0hwMQZDZD";
+  let urlProfile = `https://graph.instagram.com/me/media?access_token=${ACCESS_TOKEN}&fields=media_url,media_type,caption,permalink`;
   let col1 = [];
   let col2 = [];
   let col3 = [];
@@ -25,9 +25,9 @@
 
   function getImageDesc(item) {
     return {
-      url: item.images.standard_resolution.url,
-      caption: item.caption.text,
-      urlPost: item.link
+      url: item.media_url,
+      caption: item.caption,
+      urlPost: item.permalink
     };
   }
 
