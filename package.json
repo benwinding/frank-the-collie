@@ -4,11 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev --no-hot",
+    "start": "sapper dev --no-hot",
     "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
     "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o static/index.css",
     "build": "npm run build:tailwind && sapper build --legacy",
     "export-gh": "npm run build:tailwind && sapper export --basepath '/frank-the-collie'",
-    "start": "node __sapper__/build",
+    "start-build": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run"
