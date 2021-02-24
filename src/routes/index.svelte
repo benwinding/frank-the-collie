@@ -26,6 +26,7 @@
   function getImageDesc(item) {
     return {
       url: item.media_url,
+      isVideo: item.media_type === 'VIDEO',
       caption: item.caption,
       urlPost: item.permalink
     };
@@ -57,18 +58,18 @@
 {:else}
   <div class="flex mb-4">
     <div class="w-1/3">
-      {#each col1 as { url, caption, urlPost }, i}
-        <InstaCard {url} {caption} {urlPost} />
+      {#each col1 as { url, caption, urlPost, isVideo }, i}
+        <InstaCard {url} {caption} {urlPost} {isVideo}/>
       {/each}
     </div>
     <div class="w-1/3">
-      {#each col2 as { url, caption, urlPost }, i}
-        <InstaCard {url} {caption} {urlPost} />
+      {#each col2 as { url, caption, urlPost, isVideo }, i}
+        <InstaCard {url} {caption} {urlPost} {isVideo}/>
       {/each}
     </div>
     <div class="w-1/3">
-      {#each col3 as { url, caption, urlPost }, i}
-        <InstaCard {url} {caption} {urlPost} />
+      {#each col3 as { url, caption, urlPost, isVideo }, i}
+        <InstaCard {url} {caption} {urlPost} {isVideo}/>
       {/each}
     </div>
   </div>
