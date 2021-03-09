@@ -3,8 +3,8 @@
   import InstaCard from "../components/InstaCard.svelte";
   import axios from 'axios';
 
-  let ACCESS_TOKEN = "19146560522.1677ed0.0802063cadc644c29dec3eee81f26779";
-  let urlProfile = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}`;
+  let ACCESS_TOKEN = "IGQVJXSm5ldG5KYklDUHU1VVNDdkZAnV0FDTU9MdzlzSjFTcXpKekExLWgzYmVsTDhGY1JuTzZAOd2ZAMUkFHTDNQd284VDAxamdtdGR6blFSR0YwaFhMSWU2eGNWUkRZAX3M4a1FtQzJMTU1pSDJZAR0hwMQZDZD";
+  let urlProfile = `https://graph.instagram.com/me/media?access_token=${ACCESS_TOKEN}&fields=media_url,media_type,caption,permalink,thumbnail_url`;
   let col1 = [];
   let col2 = [];
   let col3 = [];
@@ -24,10 +24,12 @@
   }
 
   function getImageDesc(item) {
+    const isVideo = item.media_type === 'VIDEO';
     return {
-      url: item.images.standard_resolution.url,
-      caption: item.caption.text,
-      urlPost: item.link
+      url: isVideo ? item.thumbnail_url : item.media_url,
+      isVideo: isVideo,
+      caption: item.caption,
+      urlPost: item.permalink
     };
   }
 
@@ -57,18 +59,18 @@
 {:else}
   <div class="flex mb-4">
     <div class="w-1/3">
-      {#each col1 as { url, caption, urlPost }, i}
-        <InstaCard {url} {caption} {urlPost} />
+      {#each col1 as { url, caption, urlPost, isVideo }, i}
+        <InstaCard {url} {caption} {urlPost} {isVideo}/>
       {/each}
     </div>
     <div class="w-1/3">
-      {#each col2 as { url, caption, urlPost }, i}
-        <InstaCard {url} {caption} {urlPost} />
+      {#each col2 as { url, caption, urlPost, isVideo }, i}
+        <InstaCard {url} {caption} {urlPost} {isVideo}/>
       {/each}
     </div>
     <div class="w-1/3">
-      {#each col3 as { url, caption, urlPost }, i}
-        <InstaCard {url} {caption} {urlPost} />
+      {#each col3 as { url, caption, urlPost, isVideo }, i}
+        <InstaCard {url} {caption} {urlPost} {isVideo}/>
       {/each}
     </div>
   </div>
