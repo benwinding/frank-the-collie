@@ -1,4 +1,4 @@
-on: 
+on:
   push:
     branches:
       - master
@@ -25,7 +25,7 @@ jobs:
         run: npm install
       - name: Build
         run: |
-          npm run export-gh
+          npm run build
       - name: Make 404.html
         run: cp index.html 404.html
         working-directory: __sapper__/export/frank-the-collie
