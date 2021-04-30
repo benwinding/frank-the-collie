@@ -1,10 +1,7 @@
 on:
-  # schedule:
-  #   # At 12:00 on the 1st every month
-  #   - cron:  '0 12 1 * *'
-  push:
-    branches:
-      - master
+  schedule:
+    # At 12:00 on the 1st every month
+    - cron:  '0 12 1 * *'
 
 name: Refresh Instagram Photos
 jobs:
