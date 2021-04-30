@@ -1,41 +1,37 @@
 <script>
   import { onMount } from "svelte";
   import InstaCard from "../components/InstaCard.svelte";
-  import axios from 'axios';
+  import axios from "axios";
 
-  let ACCESS_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN;
-  let urlProfile = `https://graph.instagram.com/me/media?access_token=${ACCESS_TOKEN}&fields=media_url,media_type,caption,permalink,thumbnail_url`;
-  let col1 = [];
-  let col2 = [];
-  let col3 = [];
+  let images = [];
+  const base = process.env.BASE_PATH || "/";
 
   async function getData() {
-    console.log('accessing instagram api:');
-    const res = await axios.get(urlProfile);
+    console.log("accessing instagram api:");
+    const urlInstaJson = `/${base}/insta-feed/frankthecollie.json`;
+    const urlNoDoubleSlashes = urlInstaJson.replace(/[/]+/g, "/");
+    const res = await axios.get(urlNoDoubleSlashes);
     const json = res.data;
-    console.log('accessing instagram api:', {res});
-    const images = json.data.map(item => getImageDesc(item));
-    for (let i = 0; i < images.length; i += 3) {
-      col1 = [...col1, images[i + 0]].filter(v => !!v);
-      col2 = [...col2, images[i + 1]].filter(v => !!v);
-      col3 = [...col3, images[i + 2]].filter(v => !!v);
-    }
-    console.log({ json, col1, col2, col3 });
+    console.log("accessing instagram api:", { json });
+    images = json.GraphImages.map(item => getImageDesc(item)).filter(i => !i.isVideo);
   }
 
   function getImageDesc(item) {
-    const isVideo = item.media_type === 'VIDEO';
+    const isVideo = item.is_video;
+    const edges = item.edge_media_to_caption.edges;
+    const urlThumb = `/${base}/insta-feed/${item.shortcode}.jpg`;
+    const urlThumbNoDoubleSlashes = urlThumb.replace(/[/]+/g, "/");
     return {
-      url: isVideo ? item.thumbnail_url : item.media_url,
+      url: urlThumbNoDoubleSlashes,
       isVideo: isVideo,
-      caption: item.caption,
-      urlPost: item.permalink
+      caption: edges.length && edges[0].node.text,
+      urlPost: `https://www.instagram.com/p/${item.shortcode}/`
     };
   }
 
   onMount(async () => {
     getData();
-	});
+  });
 </script>
 
 <svelte:head>
@@ -43,13 +39,16 @@
 </svelte:head>
 
 <div class="flex flex-row justify-center items-center pb-4">
-  <a class="flex flex-row items-center" target="_blank" href="https://www.instagram.com/frankthecollie/">
+  <a
+    class="flex flex-row items-center"
+    target="_blank"
+    href="https://www.instagram.com/frankthecollie/">
     <img src="images/frankstagram.png" width="30" alt="frank logo" />
     <span class="italic pl-2">Instagram Feed</span>
   </a>
 </div>
 
-{#if col1.length < 1 }
+{#if images.length < 1}
   <div class="flex flex-col items-center py-20">
     <div class="flex flex-col items-center">
       <img src="images/loading.gif" width="100" alt="loading" />
@@ -57,21 +56,38 @@
     </div>
   </div>
 {:else}
-  <div class="flex mb-4">
-    <div class="w-1/3">
-      {#each col1 as { url, caption, urlPost, isVideo }, i}
-        <InstaCard {url} {caption} {urlPost} {isVideo}/>
-      {/each}
-    </div>
-    <div class="w-1/3">
-      {#each col2 as { url, caption, urlPost, isVideo }, i}
-        <InstaCard {url} {caption} {urlPost} {isVideo}/>
-      {/each}
-    </div>
-    <div class="w-1/3">
-      {#each col3 as { url, caption, urlPost, isVideo }, i}
-        <InstaCard {url} {caption} {urlPost} {isVideo}/>
-      {/each}
-    </div>
+  <div class="masonry">
+    {#each images as { url, caption, urlPost, isVideo }, i}
+      <div class="masonry-item">
+        <InstaCard {url} {caption} {urlPost} {isVideo} />
+      </div>
+    {/each}
   </div>
 {/if}
+
+<style>
+  .masonry {
+    columns: 1;
+    column-gap: 0.5rem;
+  }
+  .masonry-item {
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
+  }
+
+  @media (min-width: 640px) {
+    .masonry {
+      columns: 2;
+    }
+  }
+  @media (min-width: 768px) {
+    .masonry {
+      columns: 3;
+    }
+  }
+  @media (min-width: 1024px) {
+    .masonry {
+      columns: 4;
+    }
+  }
+</style>

@@ -3,7 +3,6 @@ import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 
-require('dotenv').config()
 const { PORT, NODE_ENV, BASE_PATH } = process.env;
 const dev = NODE_ENV === 'development';
 
