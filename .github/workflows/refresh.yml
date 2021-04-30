@@ -1,0 +1,28 @@
+on:
+  push: 
+    branches:
+      - master
+
+  # schedule:
+  #   # At 12:00 on the 1st every month
+  #   - cron:  '0 12 1 * *'
+
+name: Refresh Instagram Token
+jobs:
+  deploy:
+    name: Build & Deploy Demo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - run: pip install instagram-scraper
+      - name: Scrape images
+        env: 
+          INSTAGRAM_PASS: ${{secrets.INSTAGRAM_PASS}}
+          INSTAGRAM_USER: frankthecollie
+        run: instagram-scraper $INSTAGRAM_USER -u $INSTAGRAM_PASS -p $INSTAGRAM_USER -t image --maximum 2 --latest --destination ./static/insta-feed
+      - name: Save to Repo
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: './static'
+          message: 'Scraped instagram photos'
+          default_author: github_actions
