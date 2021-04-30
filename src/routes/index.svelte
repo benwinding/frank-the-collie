@@ -3,7 +3,7 @@
   import InstaCard from "../components/InstaCard.svelte";
   import axios from 'axios';
 
-  let ACCESS_TOKEN = "IGQVJXSm5ldG5KYklDUHU1VVNDdkZAnV0FDTU9MdzlzSjFTcXpKekExLWgzYmVsTDhGY1JuTzZAOd2ZAMUkFHTDNQd284VDAxamdtdGR6blFSR0YwaFhMSWU2eGNWUkRZAX3M4a1FtQzJMTU1pSDJZAR0hwMQZDZD";
+  let ACCESS_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN;
   let urlProfile = `https://graph.instagram.com/me/media?access_token=${ACCESS_TOKEN}&fields=media_url,media_type,caption,permalink,thumbnail_url`;
   let col1 = [];
   let col2 = [];
