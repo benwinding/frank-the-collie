@@ -1,3 +1,0 @@
-[users]
-frankthecollie = 1613647661
-

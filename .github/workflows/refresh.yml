@@ -16,10 +16,11 @@ jobs:
           INSTAGRAM_PASS: ${{secrets.INSTAGRAM_PASS}}
           INSTAGRAM_USER: frankthecollie
           INSTAGRAM_TARGET: frankthecollie
-        run: instagram-scraper $INSTAGRAM_TARGET -u $INSTAGRAM_USER -p $INSTAGRAM_PASS -t image --maximum 20 --destination ./static/insta-feed --latest-stamps ./static/insta-feed.cache.txt --media_metadata -T {shortcode}
+        run: instagram-scraper $INSTAGRAM_TARGET -u $INSTAGRAM_USER -p $INSTAGRAM_PASS -t image --maximum 30 --destination ./static/insta-feed --latest-stamps ./static/insta-feed.cache.txt --media_metadata -T {shortcode}
       - name: Save to Repo
         uses: EndBug/add-and-commit@v7
         with:
           add: "./static/insta-feed/*.jpg ./static/insta-feed/*.json ./static/insta-feed.cache.txt"
           message: "Scraped instagram photos"
-          default_author: github_actions
+          author_name: Instagram Scraper
+          author_email: instascraper@me.com
