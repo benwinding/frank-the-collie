@@ -19,7 +19,8 @@ jobs:
         env: 
           INSTAGRAM_PASS: ${{secrets.INSTAGRAM_PASS}}
           INSTAGRAM_USER: frankthecollie
-        run: instagram-scraper $INSTAGRAM_USER -u $INSTAGRAM_PASS -p $INSTAGRAM_USER -t image --maximum 2 --latest --destination ./static/insta-feed
+          INSTAGRAM_TARGET: frankthecollie
+        run: instagram-scraper $INSTAGRAM_TARGET -u $INSTAGRAM_USER -p $INSTAGRAM_USER -t image --maximum 2 --latest --destination ./static/insta-feed
       - name: Save to Repo
         uses: EndBug/add-and-commit@v7
         with:
