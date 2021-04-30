@@ -4,7 +4,7 @@
   import axios from "axios";
 
   let images = [];
-  const base = process.env.BASE_PATH || "/";
+  const base = process.env.BASE_PATH || __SAPPER__.baseUrl || "/";
 
   async function getData() {
     console.log("accessing instagram api:");
