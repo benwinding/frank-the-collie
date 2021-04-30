@@ -25,9 +25,12 @@ jobs:
             $INSTAGRAM_TARGET \ 
             -u $INSTAGRAM_USER \ 
             -p $INSTAGRAM_PASS \
-            -t none \
+            -t image \
+            --maximum 20 \
             --destination ./static/insta-feed \
-            --media_metadata
+            --latest-stamps ./static/insta-feed.cache.txt \
+            --media_metadata \
+            -T {shortcode}
       - name: Save to Repo
         uses: EndBug/add-and-commit@v7
         with:
