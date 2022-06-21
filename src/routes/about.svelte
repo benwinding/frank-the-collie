@@ -2,6 +2,7 @@
   import * as moment from "moment";
 
   const birthDate = moment([2018, 10, 13]);
+  // death: 19-06-2022
   const todayDate = moment();
 
   function getAgeDuration() {
