@@ -1,6 +1,7 @@
 <script>
   import Nav from "../components/Nav.svelte";
   import PatCounts from "../components/PatCounts.svelte";
+  import Rip from "../components/Rip.svelte";
 
   export let segment;
 </script>
@@ -20,10 +21,18 @@
   .hover-opacity:hover {
     opacity: 1;
   }
+  .side-width {
+    width: 4rem;
+  }
 </style>
 
-<div class="flex justify-center">
+<div class="flex flex-row items-center justify-center">
+  <div class="side-width">
+    <Rip />
+  </div>
   <PatCounts />
+  <div class="side-width">
+  </div>
 </div>
 
 <Nav {segment} />

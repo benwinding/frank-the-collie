@@ -4,11 +4,11 @@
   export let frankLogoUrl = "images/logo.png";
   export let count = 0;
 
-  export async function incrementPatsCount() {
+  export async function onPat() {
     frankLogoUrl = "images/logo-winked.png";
     setTimeout(() => {
       frankLogoUrl = "images/logo.png";
-    }, 1000);
+    }, 400);
   }
 
   onMount(async () => {
@@ -18,7 +18,8 @@
 
 <div
   class="flex flex-row items-start cursor-pointer"
-  on:click={incrementPatsCount}>
+  on:click={onPat}
+>
   <div class="flex flex-col items-center">
     <div>
       <img class="p-2" src={frankLogoUrl} alt="Frank posed" width="150" />
