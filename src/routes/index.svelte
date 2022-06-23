@@ -4,22 +4,21 @@
   import axios from "axios";
 
   let images = [];
-  const base = process.env.BASE_PATH || __SAPPER__.baseUrl || "/";
 
-  async function getData() {
+  async function getData(baseUrl) {
     console.log("accessing instagram api:");
-    const urlInstaJson = `/${base}/insta-feed/frankthecollie.json`;
+    const urlInstaJson = `/${baseUrl}/insta-feed/frankthecollie.json`;
     const urlNoDoubleSlashes = urlInstaJson.replace(/[/]+/g, "/");
     const res = await axios.get(urlNoDoubleSlashes);
     const json = res.data;
     console.log("accessing instagram api:", { json });
-    images = json.GraphImages.map(item => getImageDesc(item)).filter(i => !i.isVideo);
+    images = json.GraphImages.map(item => getImageDesc(item, baseUrl)).filter(i => !i.isVideo);
   }
 
-  function getImageDesc(item) {
+  function getImageDesc(item, baseUrl) {
     const isVideo = item.is_video;
     const edges = item.edge_media_to_caption.edges;
-    const urlThumb = `/${base}/insta-feed/${item.shortcode}.jpg`;
+    const urlThumb = `/${baseUrl}/insta-feed/${item.shortcode}.jpg`;
     const urlThumbNoDoubleSlashes = urlThumb.replace(/[/]+/g, "/");
     return {
       url: urlThumbNoDoubleSlashes,
@@ -30,7 +29,8 @@
   }
 
   onMount(async () => {
-    getData();
+    const baseUrl = process.env.BASE_PATH || __SAPPER__.baseUrl || "/";
+    getData(baseUrl);
   });
 </script>
 
