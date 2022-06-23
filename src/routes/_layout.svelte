@@ -33,9 +33,6 @@
 </main>
 
 <div class="flex flex-col items-center p-5">
-  <img
-    src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fbenwinding.github.io%2Ffrank-the-collie%2F"
-    alt="Hits" />
   <div class="flex flex-row items-center">
     <a
       class="flex flex-row items-center opacity-50 hover-opacity"
