@@ -74,7 +74,7 @@
        <li>Smiling</li>
        <li>Getting pats</li>
       </ul>
-      <img class="mt-3" src="images/family.jpg" alt="my family" />
+      <img class="mt-3" src="images/me.jpg" alt="me!" />
 
       <h1 class="my-3 text-xl">Aditional Stats</h1>
       <div class="w-full">
