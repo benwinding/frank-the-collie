@@ -23,12 +23,13 @@
     </div>
     <form
       class="p-6"
-      action="https://getsimpleform.com/messages?form_api_token=4902df5177b7f540a160b9c35d1cd971"
-      method="post"
+      method="POST"
+      action="https://formsubmit.co/hello+frank@benwinding.com"
       on:submit={() => (isSending = true)}>
-      <input type="hidden" name="redirect_to" value={thanksUrl} />
       <div class="w-full mb-6 px-2">
-        <p class="pb-4">Throw me a bone, or book me for a photo shoot :)</p>
+        <p class="pb-4">Throw me a bone :)</p>
+        <input type="hidden" name="_next" value={thanksUrl} />
+        <input type="hidden" name="_subject" value="New submission for Frank! (from frank-the-collie)">
         <label
           class="block uppercase tracking-wider text-gray-700 text-xs font-bold
           mb-2"
