@@ -1,33 +1,11 @@
 <script>
-  import axios from "axios";
   import { onMount } from "svelte";
 
   export let frankLogoUrl = "images/logo.png";
   export let count = 0;
-  async function getPatsCount() {
-    const hitCountTarget =
-      "https://benwinding.github.io/frank-the-collie/pat-counter";
-    const res = await axios.get(
-      "https://hitcounter.pythonanywhere.com/nocount",
-      {
-        params: {
-          url: hitCountTarget
-        }
-      }
-    );
-    count = res.data;
-  }
 
   export async function incrementPatsCount() {
     frankLogoUrl = "images/logo-winked.png";
-    const hitCountTarget =
-      "https://benwinding.github.io/frank-the-collie/pat-counter";
-    const res = await axios.get("https://hitcounter.pythonanywhere.com/count", {
-      params: {
-        url: hitCountTarget
-      }
-    });
-    count = res.data;
     setTimeout(() => {
       frankLogoUrl = "images/logo.png";
     }, 1000);
@@ -63,7 +41,7 @@
     <h2 class="font-mono text-center font-bold text-3xl">Frank</h2>
     <div class="text-gray-500 text-xs flex flex-row items-center">
       <span class="wiggle-this text-lg">✋</span> 
-      <span>Pats given: {count}</span>
+      <span>Click to pat me ^</span>
     </div>
   </div>
 </div>
