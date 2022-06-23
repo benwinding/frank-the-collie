@@ -3,10 +3,10 @@
 
   const birthDate = moment([2018, 10, 13]);
   // death: 19-06-2022
-  const todayDate = moment();
+  const deathDate = moment([2022, 6, 19]);
 
   function getAgeDuration() {
-    const diffDuration = moment.duration(todayDate.diff(birthDate));
+    const diffDuration = moment.duration(deathDate.diff(birthDate));
     return diffDuration;
   }
 
@@ -35,7 +35,7 @@
 
   function getNextBirthdayString() {
     const nextBirthday = getNextBirthday();
-    const durationNextBirthday = moment.duration(nextBirthday.diff(todayDate));
+    const durationNextBirthday = moment.duration(nextBirthday.diff(deathDate));
     const nextBirthdayString = durationToString(durationNextBirthday);
     return nextBirthdayString;
   }
@@ -48,11 +48,12 @@
   }
 
   const stats = [
-    { label: "Weight", value: "18.3 kg" },
+    { label: "Weight", value: "26.1 kg" },
     { label: "Highest Jump", value: "1.3 m (kitchen counter)" },
     { label: "Age", value: getAgeString() },
     { label: "Birthday", value: getBirthdayString() },
     { label: "Next Birthday", value: getNextBirthdayString() },
+    { label: "Death", value: deathDate.format("LL") + ' 😔' },
   ];
 </script>
 
@@ -67,15 +68,13 @@
     </div>
     <div class="px-8 py-2">
       <p class="py-1">Hey There,</p>
-      <p class="py-1">My name is Frank, I'm an influencer/border-collie currently working in Adelaide. My Talent's include:</p>
+      <p class="py-1">My name is Frank, I am an influencer/border-collie working in Adelaide. My Talent's include:</p>
       <ul class="list-disc list-inside">
        <li>Running</li>
        <li>Smiling</li>
        <li>Getting pats</li>
       </ul>
-      <p class="py-1"><a href="contact" class="text-blue-500 font-bold">Contact me</a> about any offers or problems you think I can help with.</p>
-      <p class="py-1">At the moment I live in a pretty chill share house (with Benny and Ally), below is a photo of us.</p>
-      <img src="images/family.jpg" alt="my family" />
+      <img class="mt-3" src="images/family.jpg" alt="my family" />
 
       <h1 class="my-3 text-xl">Aditional Stats</h1>
       <div class="w-full">
