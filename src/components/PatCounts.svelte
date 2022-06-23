@@ -4,15 +4,19 @@
   export let frankLogoUrl = "images/logo.png";
   export let count = 0;
 
-  export async function onPat() {
-    frankLogoUrl = "images/logo-winked.png";
-    setTimeout(() => {
+  let timeoutRef;
+  export function onPat() {
+    frankLogoUrl = "images/logo-pat.png";
+    clearTimeout(timeoutRef);
+    timeoutRef = setTimeout(() => {
       frankLogoUrl = "images/logo.png";
     }, 400);
   }
 
-  onMount(async () => {
-    getPatsCount();
+  onMount(() => {
+    setTimeout(() => {
+      onPat()
+    }, 1000);
   });
 </script>
 
