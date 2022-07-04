@@ -1,9 +1,8 @@
 <script>
   import * as moment from "moment";
 
-  const birthDate = moment([2018, 10, 13]);
-  // death: 19-06-2022
-  const deathDate = moment([2022, 6, 19]);
+  const birthDate = moment('2018-10-13', 'YYYY-MM-DD');
+  const deathDate = moment('2022-06-19', 'YYYY-MM-DD');
 
   function getAgeDuration() {
     const diffDuration = moment.duration(deathDate.diff(birthDate));
